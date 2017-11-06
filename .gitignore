@@ -1,0 +1,8 @@
+# Package managers
+bower_components/
+node_modules/
+vendor/
+
+# Project specific
+assets/
+todo.md
