@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     path: __dirname + '/assets',
     filename: 'js/app.js',
@@ -19,9 +19,6 @@ module.exports = {
         }
       }
     ]
-  },
-  node: {
-    fs: "empty"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
