@@ -4,5 +4,4 @@ node_modules/
 vendor/
 
 # Project specific
-assets/
 todo.md
