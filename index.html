@@ -7,19 +7,14 @@
   <style type="text/css" media="screen">/* critical css */</style>
   <link rel="preload" href="assets/css/theme.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/theme.css"></noscript>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
   <script>!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);</script>
-  <style type="text/css" media="screen">body{margin:1em}</style>
 </head>
 <body>
-
   <section class="section">
     <div class="container">
       <h1 class="title has-text-centered">webvsc-ui</h1>
     </div>
   </section>
-
   <section class="section">
     <div class="container level-item">
       <div class="field has-addons">
@@ -28,7 +23,7 @@
             <input id="loadFiles" class="file-input" type="file" name="files[]" multiple>
             <span class="button is-large is-info is-outlined">
               <span class="icon">
-                <i class="fa fa-upload"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="16"></line></svg>
               </span>
               <span class="file-label">
                 Load AVS
@@ -36,12 +31,11 @@
             </span>
           </label>
         </p>
-
         <p class="control">
           <label class="file-label">
             <a id="saveFile" class="button is-large is-danger is-outlined" disabled>
               <span class="icon">
-                <i class="fa fa-download"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"></path><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="2" x2="12" y2="16"></line></svg>
               </span>
               <span class="file-label">
                 Save Webvs
@@ -52,7 +46,6 @@
       </div>
     </div>
   </section>
-
   <script src="assets/js/app.js" async></script>
 </body>
 </html>
