@@ -18,8 +18,10 @@ Web frontend for [webvsc](https://www.npmjs.com/package/@visbot/webvsc), a conve
 git clone https://github.com/idleberg/webvsc-ui
 cd webvsc-ui
 
-# Install dependencies and build
+# Install dependencies
 yarn || npm install
+
+# Build
 yarn build || npm run build
 
 # Run server at localhost:8080
@@ -27,6 +29,15 @@ yarn start || npm start
 ```
 
 *“That's all Folks!”*
+
+## Usage
+
+Point your browser to `http://127.0.0.1:8080` and follow instructions. Advanced users can tweak some of the defaults using URL parameters:
+
+URL Parameter | Description
+--------------|---------------------
+`verbose=<n>` | adjust output level
+`level=<n>`   | adjust compression
 
 ## License
 
