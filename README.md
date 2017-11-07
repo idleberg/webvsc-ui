@@ -35,9 +35,9 @@ yarn start || npm start
 Point your browser to `http://127.0.0.1:8080` and follow instructions. Advanced users can tweak some of the defaults using URL parameters:
 
 URL Parameter | Description
---------------|---------------------
-`verbose=<n>` | adjust output level
-`level=<n>`   | adjust compression
+--------------|--------------------------
+`verbose=<n>` | adjust output level (0-2)
+`level=<n>`   | adjust compression (0-9)
 
 ## License
 
