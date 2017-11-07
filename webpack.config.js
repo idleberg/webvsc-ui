@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const minifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -18,5 +19,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+   new minifyPlugin({
+    "mangle": false
+   })
+  ]
 };
