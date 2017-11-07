@@ -17,8 +17,7 @@ Web frontend for [webvsc](https://www.npmjs.com/package/@visbot/webvsc), a conve
 
 ```sh
 # Clone repository
-git clone https://github.com/idleberg/webvsc-ui
-cd webvsc-ui
+git clone https://github.com/idleberg/webvsc-ui && cd webvsc-ui
 
 # Install dependencies
 yarn || npm install
