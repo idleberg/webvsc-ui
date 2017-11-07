@@ -1,0 +1,10 @@
+{
+  "parserOptions": {
+     "ecmaVersion": 6,
+     "sourceType": "module"
+    },
+  "rules":{
+    "consistent-return": 0,
+    "no-console": 0
+  }
+}
