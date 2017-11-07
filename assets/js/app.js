@@ -8671,7 +8671,7 @@ convert.rgb.gray = function (rgb) {
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"webvsc-ui","version":"0.2.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.1.1","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-es2015":"^6.24.1","copy-webpack-plugin":"^4.2.0","webpack":"^3.8.1"},"scripts":{"build":"webpack -p"}}
+module.exports = {"name":"webvsc-ui","version":"0.3.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.3.0-alpha","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-es2015":"^6.24.1","copy-webpack-plugin":"^4.2.0","http-server":"^0.10.0","webpack":"^3.8.1"},"scripts":{"build":"webpack -p","start":"http-server"}}
 
 /***/ }),
 /* 54 */
@@ -19044,19 +19044,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Components = __webpack_require__(110);
 var Util = __webpack_require__(111);
 var Table = __webpack_require__(121);
-// Dependencies
 // Constants
 var sizeInt = 4;
 var verbosity = 0; // log individual key:value fields
 var componentTable = Components.builtin.concat(Components.dll);
-var convertPreset = function convertPreset(data, args) {
+var args = {
+    verbose: 0,
+    quiet: false
+};
+var convertPreset = function convertPreset(data, customArgs) {
     // TODO: globally manage default options
-    args || (args = { verbose: 0 });
-    verbosity = args.verbose ? args.verbose : 0;
+    // args || (args = { verbose: 0});
+    Object.assign(args, customArgs);
+    // verbosity = args.verbose ? args.verbose : 0;
     verbosity = args.quiet ? -1 : verbosity;
     Util.setVerbosity(verbosity);
     Util.setHiddenStrings(args.hidden);
-    var preset = {};
+    var preset = Object.assign({}, args.preset);
     var blob8 = new Uint8Array(data);
     try {
         var clearFrame = decodePresetHeader(blob8.subarray(0, Util.presetHeaderLength));
