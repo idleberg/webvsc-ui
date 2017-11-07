@@ -37,12 +37,15 @@ function readFileAsArrayBuffer(file) {
  */
 export async function zipFiles(files) {
   const zip = new JSZip();
+  const url = new URL(window.location.href);
+
+  const verbose = url.searchParams.get('v') || 0;
 
   reader.addEventListener;
 
   for (const file of files) {
     const avsBuffer = await readFileAsArrayBuffer(file)
-    const webvs = convertPreset(avsBuffer, { verbose: 0});
+    const webvs = convertPreset(avsBuffer, { verbose: verbose });
     const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
     let outFile = basename(file.name, extname(file.name)) + '.webvs';
 
@@ -50,7 +53,8 @@ export async function zipFiles(files) {
   }
 
   const options = {
-    type: 'blob'
+    type: 'blob',
+    comment: `Generator: webvs-ui v${require('../package.json').version}`
   }
 
   try {
