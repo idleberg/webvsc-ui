@@ -56,10 +56,13 @@ function setError(err) {
   let step = 100 / files.length;
 
   for (const file of files) {
+    const baseName = basename(file.name, extname(file.name));
+    const modifiedDate = file.lastModifiedDate.toISOString();
+
     const avsBuffer = await readFileAsArrayBuffer(file)
-    const webvs = convertPreset(avsBuffer, { verbose: verbose });
+    const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
     const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
-    let outFile = basename(file.name, extname(file.name)) + '.webvs';
+    let outFile = baseName + '.webvs';
 
     // Show progress
     progress += step;
