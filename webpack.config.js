@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+// const BabiliPlugin = require('babili-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -21,7 +22,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new BabiliPlugin(),
     new CopyWebpackPlugin([
       {
         from: './node_modules/bulma/css/bulma.css',
