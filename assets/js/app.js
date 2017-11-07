@@ -8671,7 +8671,7 @@ convert.rgb.gray = function (rgb) {
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"webvsc-ui","version":"0.2.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.1.1","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-minify-webpack-plugin":"^0.2.0","babel-preset-babili":"^0.1.4","babel-preset-es2015":"^6.24.1","babel-preset-minify":"^0.2.0","babili-webpack-plugin":"^0.1.2","copy-webpack-plugin":"^4.2.0","webpack":"^3.8.1"},"scripts":{"build":"webpack -p"}}
+module.exports = {"name":"webvsc-ui","version":"0.2.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.1.1","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-es2015":"^6.24.1","copy-webpack-plugin":"^4.2.0","webpack":"^3.8.1"},"scripts":{"build":"webpack -p"}}
 
 /***/ }),
 /* 54 */
@@ -8776,7 +8776,9 @@ async function zipFiles(files) {
   var zip = new _jszip2.default();
   var url = new URL(window.location.href);
 
-  var verbose = url.searchParams.get('v') || 0;
+  var verbose = url.searchParams.get('verbose') || 0;
+  var minify = url.searchParams.get('minify') !== null ? true : false;
+  var level = url.searchParams.get('level') || 0;
 
   reader.addEventListener;
 
@@ -8792,7 +8794,7 @@ async function zipFiles(files) {
       var file = _step.value;
 
       var avsBuffer = await readFileAsArrayBuffer(file);
-      var webvs = (0, _convert.convertPreset)(avsBuffer, { verbose: verbose });
+      var webvs = (0, _convert.convertPreset)(avsBuffer, { verbose: verbose, minify: minify });
       var webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4));
       var outFile = (0, _path.basename)(file.name, (0, _path.extname)(file.name)) + '.webvs';
 
@@ -8820,7 +8822,11 @@ async function zipFiles(files) {
 
   var options = {
     type: 'blob',
-    comment: 'Generator: webvs-ui v' + __webpack_require__(53).version
+    comment: 'Generator: webvs-ui v' + __webpack_require__(53).version,
+    compression: 'DEFLATE',
+    compressionOptions: {
+      level: level
+    }
   };
 
   try {
