@@ -48,7 +48,6 @@ function setError(err) {
   const url = new URL(window.location.href);
 
   const verbose = url.searchParams.get('verbose') || 0;
-  const minify = (url.searchParams.get('minify') !== null) ? true : false;
   const level = url.searchParams.get('level') || 0;
 
   reader.addEventListener;
@@ -58,7 +57,7 @@ function setError(err) {
 
   for (const file of files) {
     const avsBuffer = await readFileAsArrayBuffer(file)
-    const webvs = convertPreset(avsBuffer, { verbose: verbose, minify: minify });
+    const webvs = convertPreset(avsBuffer, { verbose: verbose });
     const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
     let outFile = basename(file.name, extname(file.name)) + '.webvs';
 
