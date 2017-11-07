@@ -7,7 +7,7 @@
 
 Web frontend for [webvsc](https://www.npmjs.com/package/@visbot/webvsc), a converter for [Winamp AVS](http://www.wikiwand.com/en/Advanced_Visualization_Studio) presets.
 
-🙌 [Demo Time](https://idleberg.github.io/webvsc-ui/)
+[Demo Time](https://idleberg.github.io/webvsc-ui/) 🙌
 
 ## License
 
