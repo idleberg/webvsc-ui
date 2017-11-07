@@ -11,6 +11,7 @@ window.onload = () => {
         // Reset background color
         button.addEventListener('mouseover', () => {
             button.style.background = '';
+            button.style.border = '';
             button.style.color = '';
         }, false);
 

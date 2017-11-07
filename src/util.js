@@ -36,6 +36,7 @@ function readFileAsArrayBuffer(file) {
 function setError(err) {
   console.log(err);
   buttonStyle.background = 'hsl(348, 100%, 61%)';
+  buttonStyle.border = 'hsl(348, 100%, 61%)';
   buttonStyle.color = 'hsl(0, 0%, 14%)';
 }
 
