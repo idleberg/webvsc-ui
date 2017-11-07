@@ -11,6 +11,23 @@ Web frontend for [webvsc](https://www.npmjs.com/package/@visbot/webvsc), a conve
 
 [Demo Time](https://idleberg.github.io/webvsc-ui/) 🙌
 
+## Installation
+
+```sh
+# Clone repository
+git clone https://github.com/idleberg/webvsc-ui
+cd webvsc-ui
+
+# Install dependencies and build
+yarn || npm install
+yarn build || npm run build
+
+# Run server at localhost:8080
+yarn start || npm start
+```
+
+*“That's all Folks!”*
+
 ## License
 
 All code is licensed under [The MIT License](http://opensource.org/licenses/MIT)
