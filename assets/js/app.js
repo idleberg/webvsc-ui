@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3f7d7b48706cd7dc01e4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fcd60c85a3970d837e17"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -9333,7 +9333,7 @@ convert.rgb.gray = function (rgb) {
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"webvsc-ui","version":"0.2.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.1.1","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.23.1","babel-loader":"^6.3.2","babel-preset-es2015":"^6.24.1","copy-webpack-plugin":"^4.0.1","webpack":"^3.8.1"},"scripts":{"build":"webpack -p"}}
+module.exports = {"name":"webvsc-ui","version":"0.2.0","description":"Web frontend for webvsc, a converter for Winamp AVS presets ","author":"Jan T. Sott","license":"MIT","private":true,"dependencies":{"@visbot/webvsc":"1.1.1","bulma":"^0.6.0","file-saver":"^1.3.3","jszip":"^3.1.4"},"devDependencies":{"babel-core":"^6.26.0","babel-loader":"^7.1.2","babel-preset-es2015":"^6.24.1","copy-webpack-plugin":"^4.2.0","webpack":"^3.8.1"},"scripts":{"build":"webpack -p"}}
 
 /***/ }),
 /* 54 */
