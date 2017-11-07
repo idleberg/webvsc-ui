@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fcd60c85a3970d837e17"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2fbb42e06221bba4b902"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -9349,7 +9349,14 @@ window.onload = function () {
     if (window.File && window.FileList && window.FileReader) {
         console.log('webvs-ui v' + __webpack_require__(53).version);
 
+        var button = document.getElementsByClassName('button')[0];
         var loadFiles = document.getElementById("loadFiles");
+
+        // Reset background color
+        button.addEventListener('mouseover', function () {
+            button.style.background = '';
+            button.style.color = '';
+        }, false);
 
         loadFiles.addEventListener("change", function (event) {
             var files = event.target.files;
@@ -9387,6 +9394,7 @@ var _fileSaver = __webpack_require__(122);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var reader = new FileReader();
+var buttonStyle = document.getElementsByClassName('button')[0].style;
 
 /**
  * via https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
@@ -9415,6 +9423,12 @@ function readFileAsArrayBuffer(file) {
   });
 }
 
+function setError(err) {
+  console.log(err);
+  buttonStyle.background = 'hsl(348, 100%, 61%)';
+  buttonStyle.color = 'hsl(0, 0%, 14%)';
+}
+
 /**
  * Returns blob of zipped files
  */
@@ -9425,6 +9439,9 @@ async function zipFiles(files) {
   var verbose = url.searchParams.get('v') || 0;
 
   reader.addEventListener;
+
+  var progress = 0;
+  var step = 100 / files.length;
 
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -9438,6 +9455,11 @@ async function zipFiles(files) {
       var webvs = (0, _convert.convertPreset)(avsBuffer, { verbose: verbose });
       var webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4));
       var outFile = (0, _path.basename)(file.name, (0, _path.extname)(file.name)) + '.webvs';
+
+      // Show progress
+      progress += step;
+      buttonStyle.background = 'linear-gradient(90deg, hsl(171, 100%, 41%) ' + progress + '%, hsl(0, 0%, 14%) ' + progress + '%)';
+      buttonStyle.color = '#fff';
 
       zip.file(outFile, webvsBuffer);
     }
@@ -9465,7 +9487,7 @@ async function zipFiles(files) {
     var blob = await zip.generateAsync(options);
     return blob;
   } catch (err) {
-    console.error(err);
+    setError(err);
   }
 }
 
@@ -9479,16 +9501,16 @@ async function download(files) {
     blob = await zipFiles(files);
     console.log('Compressing ' + files.length + ' file(s)');
   } catch (err) {
-    return console.error(err);
+    return setError(err);
   }
 
   var outFile = 'webvs-files.zip';
 
   try {
-    (0, _fileSaver.saveAs)(blob, outFile);
     console.log('Downloading \'' + outFile + '\'');
+    (0, _fileSaver.saveAs)(blob, outFile);
   } catch (err) {
-    return console.error(err);
+    setError(err);
   }
 }
 

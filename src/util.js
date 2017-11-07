@@ -4,11 +4,12 @@ import { convertPreset } from '@visbot/webvsc/lib/convert.js';
 import { saveAs } from 'file-saver';
 
 const reader = new FileReader();
+const buttonStyle = document.getElementsByClassName('button')[0].style;
 
 /**
  * via https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
  */
-function stringToArrayBuffer(str) {
+ function stringToArrayBuffer(str) {
   let buf = new ArrayBuffer(str.length * 2);
   let bufView = new Uint16Array(buf);
 
@@ -32,10 +33,16 @@ function readFileAsArrayBuffer(file) {
   });
 }
 
+function setError(err) {
+  console.log(err);
+  buttonStyle.background = 'hsl(348, 100%, 61%)';
+  buttonStyle.color = 'hsl(0, 0%, 14%)';
+}
+
 /**
  * Returns blob of zipped files
  */
-export async function zipFiles(files) {
+ export async function zipFiles(files) {
   const zip = new JSZip();
   const url = new URL(window.location.href);
 
@@ -43,11 +50,19 @@ export async function zipFiles(files) {
 
   reader.addEventListener;
 
+  let progress = 0;
+  let step = 100 / files.length;
+
   for (const file of files) {
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, { verbose: verbose });
     const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
     let outFile = basename(file.name, extname(file.name)) + '.webvs';
+
+    // Show progress
+    progress += step;
+    buttonStyle.background = `linear-gradient(90deg, hsl(171, 100%, 41%) ${progress}%, hsl(0, 0%, 14%) ${progress}%)`;
+    buttonStyle.color = '#fff';
 
     zip.file(outFile, webvsBuffer);
   }
@@ -61,30 +76,29 @@ export async function zipFiles(files) {
     const blob = await zip.generateAsync(options);
     return blob;
   } catch (err) {
-    console.error(err);
+    setError(err);
   }
 }
 
 /**
  * Start download zipped files
  */
-export async function download(files) {
+ export async function download(files) {
   let blob;
 
   try {
-      blob = await zipFiles(files);
-      console.log(`Compressing ${files.length} file(s)`);
+    blob = await zipFiles(files);
+    console.log(`Compressing ${files.length} file(s)`);
   } catch(err) {
-      return console.error(err);
+    return setError(err);
   }
 
   let outFile = `webvs-files.zip`;
 
   try {
-      saveAs(blob, outFile);
-      console.log(`Downloading '${outFile}'`);
+    console.log(`Downloading '${outFile}'`);
+    saveAs(blob, outFile);
   } catch(err) {
-      return console.error(err);
+    setError(err);
   }
-
 }
