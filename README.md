@@ -32,7 +32,7 @@ yarn start || npm start
 
 ## Usage
 
-Point your browser to `http://127.0.0.1:8080` and upload presets. See the console output if you run into problems.
+Point your browser to `http://localhost:8080` and upload presets. See the console output if you run into problems.
 
 Advanced users can tweak some of the defaults using URL parameters:
 
