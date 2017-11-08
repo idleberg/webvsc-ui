@@ -37,9 +37,9 @@ Point your browser to `http://127.0.0.1:8080` and upload presets. See the consol
 Advanced users can tweak some of the defaults using URL parameters:
 
 URL Parameter | Description
---------------|--------------------------
+--------------|-----------------------------
 `verbose=<n>` | adjust output level (0-2)
-`level=<n>`   | adjust compression (0-9)
+`level=<n>`   | adjust ZIP compression (0-9)
 
 ## License
 
