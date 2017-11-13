@@ -57,7 +57,7 @@ function setError(err) {
 
   for (const file of files) {
     const baseName = basename(file.name, extname(file.name));
-    const modifiedDate = file.lastModifiedDate.toISOString();
+    const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();;
 
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
