@@ -56,7 +56,7 @@ function setError(err) {
   let step = 100 / files.length;
 
   for (const file of files) {
-    const baseName = file.name ? basename(file.name, extname(file.name)) : '<untitled>';
+    const baseName = basename(file.name, extname(file.name));
     const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();;
 
     const avsBuffer = await readFileAsArrayBuffer(file)
