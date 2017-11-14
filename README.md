@@ -41,6 +41,18 @@ URL Parameter | Description
 `verbose=<n>` | adjust output level (0-2)
 `level=<n>`   | adjust ZIP compression (0-9)
 
+## Support
+
+The converter has been only been tested on most recent browsers at the time of its first release. These include the following, but might extend to older versions.
+
+Browser                      | Known Issues
+-----------------------------|----------------------------
+✅ Chrome  62                | -
+✅ Firefox 56                | -
+🚫 Edge (Windows 10.0.15063) | unsupported
+✅ Safari 11                 | -
+✅ Mobile Safari (iOS 11)    | saves ZIP as `untitled.zip`
+
 ## License
 
 All code is licensed under [The MIT License](http://opensource.org/licenses/MIT)
