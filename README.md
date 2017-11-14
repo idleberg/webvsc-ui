@@ -49,9 +49,11 @@ Browser                      | Known Issues
 -----------------------------|----------------------------
 ✅ Chrome  62                | -
 ✅ Firefox 56                | -
-🚫 Edge (Windows 10.0.15063) | unsupported
+🚫 Edge (Windows 10.0.15063) | fails on upload
+✅ Opera 49                  | -
 ✅ Safari 11                 | -
 ✅ Mobile Safari (iOS 11)    | saves ZIP as `untitled.zip`
+✅ Vivaldi 1.12              | -
 
 ## License
 
