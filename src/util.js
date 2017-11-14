@@ -22,7 +22,7 @@ const buttonStyle = document.getElementsByClassName('button')[0].style;
 
 function readFileAsArrayBuffer(file) {
   return new Promise((resolve, reject) => {
-    if (file instanceof File && file.name.endsWith('.avs')) {
+    if (file instanceof File) {
       reader.onload = (result) => {
         resolve(reader.result);
       }
@@ -53,9 +53,21 @@ function setError(err) {
   reader.addEventListener;
 
   let progress = 0;
+  let skipFiles = 0;
   let step = 100 / files.length;
 
   for (const file of files) {
+    // Show progress
+    progress += step;
+    buttonStyle.background = `linear-gradient(90deg, hsl(171, 100%, 41%) ${progress}%, hsl(0, 0%, 14%) ${progress}%)`;
+    buttonStyle.color = '#fff';
+
+    if (!file.name.endsWith('.avs')) {
+      console.log(`Skipping '${file.name}', unsupported file-type`);
+      skipFiles++;
+      continue;
+    }
+
     const baseName = basename(file.name, extname(file.name));
     const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();
 
@@ -63,11 +75,6 @@ function setError(err) {
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
     const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
     let outFile = baseName + '.webvs';
-
-    // Show progress
-    progress += step;
-    buttonStyle.background = `linear-gradient(90deg, hsl(171, 100%, 41%) ${progress}%, hsl(0, 0%, 14%) ${progress}%)`;
-    buttonStyle.color = '#fff';
 
     zip.file(outFile, webvsBuffer);
   }
@@ -77,12 +84,13 @@ function setError(err) {
     comment: `Generator: webvs-ui v${require('../package.json').version}`,
     compression: 'DEFLATE',
     compressionOptions: {
-        level: level
+      level: level
     }
   }
 
   try {
     const blob = await zip.generateAsync(options);
+    console.log(`Compressing ${files.length - skipFiles} file(s)`);
     return blob;
   } catch (err) {
     setError(err);
@@ -97,7 +105,6 @@ function setError(err) {
 
   try {
     blob = await zipFiles(files);
-    console.log(`Compressing ${files.length} file(s)`);
   } catch(err) {
     return setError(err);
   }
