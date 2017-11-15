@@ -47,7 +47,7 @@ The converter has been only been tested on most recent browsers at the time of i
 
 Browser                      | Known Issues
 -----------------------------|----------------------------
-💀 Android Browser (Nougat)  | doesn't work
+💀 Android Browser (Nougat)  | fails to upload
 💯 Chrome 62                 | -
 💯 Firefox 56                | -
 💀 Edge (Windows 10.0.15063) | fails on upload
