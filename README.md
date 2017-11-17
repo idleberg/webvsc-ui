@@ -47,12 +47,14 @@ The converter has been only been tested on most recent browsers at the time of i
 
 Browser                      | Known Issues
 -----------------------------|----------------------------
-💯 Chrome  62                | -
+💀 Android Browser (Nougat)  | fails to upload
+💯 Chrome 62                 | -
 💯 Firefox 56                | -
 💀 Edge (Windows 10.0.15063) | fails on upload
 💯 Opera 49                  | -
 💯 Safari 11                 | -
-🤔 Mobile Safari (iOS 11)    | saves ZIP as `untitled.zip`
+🤔 Mobile Chrome 62          | single upload
+🤔 Mobile Safari (iOS 11)    | single upload, saves ZIP as `untitled.zip`
 💯 Vivaldi 1.12              | -
 
 ## License
