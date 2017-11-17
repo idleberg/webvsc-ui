@@ -4,7 +4,8 @@ import { convertPreset } from '@visbot/webvsc';
 import { saveAs } from 'file-saver';
 
 const reader = new FileReader();
-const buttonStyle = document.getElementsByClassName('button')[0].style;
+const bodyStyle = document.getElementsByTagName("body")[0].style;
+const buttonStyle = document.getElementsByClassName("btn")[0].style;
 
 /**
  * via https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
@@ -35,9 +36,7 @@ function readFileAsArrayBuffer(file) {
 
 function setError(err) {
   console.log(err);
-  buttonStyle.background = 'hsl(348, 100%, 61%)';
-  buttonStyle.border = 'hsl(348, 100%, 61%)';
-  buttonStyle.color = 'hsl(0, 0%, 14%)';
+  bodyStyle.background = 'hsl(349, 69%, 64%)';
 }
 
 /**
@@ -59,8 +58,8 @@ function setError(err) {
   for (const file of files) {
     // Show progress
     progress += step;
-    buttonStyle.background = `linear-gradient(90deg, hsl(171, 100%, 41%) ${progress}%, hsl(0, 0%, 14%) ${progress}%)`;
-    buttonStyle.color = '#fff';
+    bodyStyle.background = `linear-gradient(90deg, hsl(152, 50%, 63%) ${progress}%, hsl(0, 0%, 13%) ${progress}%)`;
+    bodyStyle.color = '#fff';
 
     if (!file.name.endsWith('.avs')) {
       console.log(`Skipping '${file.name}', unsupported file-type`);
