@@ -34,6 +34,10 @@ function readFileAsArrayBuffer(file) {
   });
 }
 
+function setSuccess() {
+  bodyStyle.background = 'hsl(152, 50%, 63%)';
+}
+
 function setError(err) {
   console.log(err);
   bodyStyle.background = 'hsl(349, 69%, 64%)';
@@ -58,7 +62,7 @@ function setError(err) {
   for (const file of files) {
     // Show progress
     progress += step;
-    bodyStyle.background = `linear-gradient(90deg, hsl(152, 50%, 63%) ${progress}%, hsl(0, 0%, 13%) ${progress}%)`;
+    bodyStyle.background = `linear-gradient(90deg, hsl(210, 64%, 65%) ${progress}%, hsl(0, 0%, 13%) ${progress}%)`;
 
     if (!file.name.endsWith('.avs')) {
       console.log(`Skipping '${file.name}', unsupported file-type`);
@@ -112,6 +116,7 @@ function setError(err) {
   try {
     console.log(`Downloading '${outFile}'`);
     saveAs(blob, outFile);
+    setSuccess();
   } catch(err) {
     setError(err);
   }
