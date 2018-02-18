@@ -23,8 +23,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "lint": "eslint src/index.js",
-    "precommit": "npm run lint",
+    "test": "eslint src/index.js",
+    "precommit": "npm run test",
     "start": "http-server"
   }
 }
