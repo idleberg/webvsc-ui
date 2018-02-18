@@ -43,6 +43,28 @@ function setError(err) {
   bodyStyle.background = 'hsl(349, 69%, 64%)';
 }
 
+export function handleDrop(event) {
+  let dataTransfer = event.dataTransfer;
+  let files = dataTransfer.files;
+
+  download(files, true);
+}
+
+export function preventDefaults (event) {
+  event.preventDefault()
+  event.stopPropagation()
+}
+
+export function highlight(event) {
+  const dropArea = document.getElementById('drop-area');
+  dropArea.classList.add('highlight');
+}
+
+export function unhighlight(event) {
+  const dropArea = document.getElementById('drop-area');
+  dropArea.classList.remove('highlight');
+}
+
 /**
  * Returns blob of zipped files
  */
@@ -116,8 +138,10 @@ function setError(err) {
   try {
     console.log(`Downloading '${outFile}'`);
     saveAs(blob, outFile);
+    unhighlight();
     setSuccess();
   } catch(err) {
+    unhighlight();
     setError(err);
   }
 }
