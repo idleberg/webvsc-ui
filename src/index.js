@@ -19,7 +19,7 @@ window.onload = () => {
         loadFiles.addEventListener('change', (event) => {
             let files = event.target.files;
             console.log( (files.length === 1) ? '\nConverting single file' : '\nConvert multiple files');
-            Util.download(files, true);
+            download(files, true);
         });
 
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {

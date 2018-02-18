@@ -38,9 +38,14 @@ function setSuccess() {
   bodyStyle.background = 'hsl(152, 50%, 63%)';
 }
 
-function setError(err) {
-  console.log(err);
+function setError(errorMessage, throwError = false) {
   bodyStyle.background = 'hsl(349, 69%, 64%)';
+
+  if (throwError === true) {
+    throw(errorMessage);
+  } else {
+    console.log(errorMessage);
+  }
 }
 
 export function handleDrop(event) {
@@ -112,9 +117,15 @@ export function unhighlight(event) {
     }
   }
 
+  const totalFiles = files.length - skipFiles;
+
+  if (totalFiles === 0 ) {
+    setError('No supported file-types uploaded', true);
+  }
+
   try {
     const blob = await zip.generateAsync(options);
-    console.log(`Compressing ${files.length - skipFiles} file(s)`);
+    console.log(`Compressing ${totalFiles} file(s)`);
     return blob;
   } catch (err) {
     setError(err);
