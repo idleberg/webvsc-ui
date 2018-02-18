@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 const reader = new FileReader();
 const bodyStyle = document.getElementsByTagName("body")[0].style;
 const buttonStyle = document.getElementsByClassName("btn")[0].style;
+ const dropArea = document.getElementById('drop-area');
 
 /**
  * via https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
@@ -61,12 +62,11 @@ export function preventDefaults (event) {
 }
 
 export function highlight(event) {
-  const dropArea = document.getElementById('drop-area');
+
   dropArea.classList.add('highlight');
 }
 
 export function unhighlight(event) {
-  const dropArea = document.getElementById('drop-area');
   dropArea.classList.remove('highlight');
 }
 
