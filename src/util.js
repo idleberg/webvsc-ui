@@ -75,6 +75,7 @@ export function unhighlight(event) {
  export async function zipFiles(files) {
   const zip = new JSZip();
   const url = new URL(window.location.href);
+  const urlParams = new URLSearchParams(window.location.search);
 
   const verbose = url.searchParams.get('verbose') || 0;
   const level = url.searchParams.get('level') || 0;
@@ -101,7 +102,8 @@ export function unhighlight(event) {
 
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
-    const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, 4))
+    const whitespace = (urlParams.has('minify') && urlParams.get('minify') != false) ? 0 : 4;
+    const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, whitespace))
     let outFile = baseName + '.webvs';
 
     zip.file(outFile, webvsBuffer);
