@@ -5,16 +5,8 @@ window.onload = () => {
     if (window.File && window.FileList && window.FileReader) {
         console.info(`webvs-ui v${require('../package.json').version}`);
 
-        const body = document.getElementsByTagName('body')[0];
-        const progress = document.getElementsByClassName('progress')[0];
         const loadFiles = document.getElementById('load-files');
         const dropArea = document.getElementById('drop-area');
-
-        // Reset background color
-        body.addEventListener('mouseover', () => {
-            progress.style.background = '';
-            progress.style.color = '';
-        }, false);
 
         loadFiles.addEventListener('change', (event) => {
             let files = event.target.files;
