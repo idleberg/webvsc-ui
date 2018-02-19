@@ -102,8 +102,8 @@ export function unhighlight(event) {
 
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
-    const whitespace = (urlParams.has('minify') && urlParams.get('minify') != false) ? 0 : 4;
-    const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, whitespace))
+    const whitespace = (urlParams.has('minify') == true) ? 0 : 4;
+    const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, whitespace));
     let outFile = baseName + '.webvs';
 
     zip.file(outFile, webvsBuffer);
