@@ -74,11 +74,11 @@ export function unhighlight(event) {
  */
  export async function zipFiles(files) {
   const zip = new JSZip();
-  const url = new URL(window.location.href);
   const urlParams = new URLSearchParams(window.location.search);
 
-  const verbose = url.searchParams.get('verbose') || 0;
-  const level = url.searchParams.get('level') || 0;
+  const verbose = urlParams.get('verbose') || 0;
+  const level = urlParams.get('level') || 0;
+  const whitespace = (urlParams.has('minify') == true) ? 0 : 4;
 
   reader.addEventListener;
 
@@ -99,7 +99,6 @@ export function unhighlight(event) {
 
     const baseName = basename(file.name, extname(file.name));
     const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();
-    const whitespace = (urlParams.has('minify') == true) ? 0 : 4;
 
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
