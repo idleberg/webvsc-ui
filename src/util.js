@@ -99,14 +99,13 @@ export function unhighlight(event) {
 
     const baseName = basename(file.name, extname(file.name));
     const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();
+    const whitespace = (urlParams.has('minify') == true) ? 0 : 4;
 
     const avsBuffer = await readFileAsArrayBuffer(file)
     const webvs = convertPreset(avsBuffer, baseName, modifiedDate, { verbose: verbose });
-    const whitespace = (urlParams.has('minify') == true) ? 0 : 4;
-    const webvsBuffer = stringToArrayBuffer(JSON.stringify(webvs, null, whitespace));
     let outFile = baseName + '.webvs';
 
-    zip.file(outFile, webvsBuffer);
+    zip.file(outFile, JSON.stringify(webvs, null, whitespace));
   }
 
   const options = {
