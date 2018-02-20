@@ -40,6 +40,7 @@ URL Parameter | Description
 --------------|-----------------------------
 `verbose=<n>` | adjust output level (0-2)
 `level=<n>`   | adjust ZIP compression (0-9)
+`minify`      | minify output JSON
 
 ## Support
 
