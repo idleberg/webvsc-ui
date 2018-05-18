@@ -1,34 +1,21 @@
 const webpack = require('webpack');
-const minifyPlugin = require("babel-minify-webpack-plugin");
+const path = require('path');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: ["babel-polyfill", "./src/index.js"],
   output: {
-    path: __dirname + '/assets',
-    filename: 'js/app.js',
-    publicPath: __dirname + '/assets'
+    path: path.resolve(__dirname, 'assets/js'),
+    filename: 'app.js'
   },
-  target: 'web',
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            ["env", {
-              "targets": {
-                "browsers": ["last 2 versions"]
-              }
-            }]
-          ]
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
         }
       }
     ]
-  },
-  plugins: [
-    new minifyPlugin({
-      "mangle": false
-    })
-  ]
+  }
 };
