@@ -5,6 +5,12 @@
   "author": "Jan T. Sott",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "webpack",
+    "test": "eslint src/*.js",
+    "precommit": "npm run test",
+    "start": "http-server"
+  },
   "dependencies": {
     "@visbot/webvsc": "^1.3.1",
     "file-saver": "^1.3.8",
@@ -15,16 +21,12 @@
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
     "http-server": "^0.11.1",
     "husky": "^0.14.3",
     "webpack": "^3.11.0"
   },
-  "scripts": {
-    "build": "webpack",
-    "test": "eslint src/*.js",
-    "precommit": "npm run test",
-    "start": "http-server"
-  }
+  "browserslist": "last 2 versions"
 }
