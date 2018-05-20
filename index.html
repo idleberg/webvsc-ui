@@ -20,21 +20,19 @@
           <h1 class="h2">webvsc-ui</h1>
           <hr>
           <p>This is a tool to convert <u><a href="http://www.wikiwand.com/en/Advanced_Visualization_Studio">Winamp AVS</a></u> presets into <u><a href="https://github.com/azeem/webvs">Webvs</a></u> files. Simply drag one or many presets onto this window, then wait for the download to initiate.</p>
-          <p class="d-inline d-sm-inline d-md-inline d-lg-none">On mobile, use the upload button in the footer of this page.</p>
         </div>
       </div>
     </div>
   </div>
   <footer class="text-right">
-    <label>
-      <input id="load-files" class="file-input" type="file" name="files[]" hidden multiple>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-    </label>
     <a href="https://github.com/idleberg/webvsc-ui"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
   </footer>
-  <div class="progress"></div>
-  <script src="assets/js/app.js" async></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53539506-19"></script>
+  <script src="dist/app.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var ui = new Webvsc(document.getElementById('drop-area'));
+    });
+  </script>
   <script>(function(e,t,n,i,a,s,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)};s=t.createElement(i);c=t.getElementsByTagName(i)[0];s.async=true;s.src=a;c.parentNode.insertBefore(s,c)})(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");galite("create","UA-53539506-19","auto");galite("send","pageview");</script>
 </body>
 </html>
