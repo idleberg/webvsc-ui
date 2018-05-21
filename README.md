@@ -27,6 +27,7 @@ yarn add @visbot/webvsc-ui || npm install @visbot/webvsc-ui
 Embedding the converter into a website is easy
 
 ```html
+<head>
     <!-- Import the style-sheet -->
     <link rel="stylesheet" href="dist/webvsc-ui.css">
 </head>
