@@ -188,7 +188,7 @@ function getParams() {
   for (const file of files) {
     // Show progress
     progress += step;
-    progressBar.style.background = `linear-gradient(90deg, hsl(152, 50%, 63%) ${progress}%, hsl(0, 0%, 13%) ${progress}%)`;
+    progressBar.style.background = `linear-gradient(90deg, hsl(197, 88%, 65%) ${progress}%, hsl(0, 0%, 13%) ${progress}%)`;
 
     if (!file.name.endsWith('.avs')) {
       console.log(`Skipping '${file.name}', unsupported file-type`);
