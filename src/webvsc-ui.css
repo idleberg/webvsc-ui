@@ -1,0 +1,31 @@
+.webvsc-wrapper {
+  background: #222;
+  color:  #eee;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.webvsc-contents {
+  align-content: center;
+  border: 2px dashed #444;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  margin: 1rem;
+  padding: 2rem;
+  transition: border-color .5s ease;
+}
+
+
+.webvsc-progress {
+  align-content: stretch;
+  background: #222;
+  display: grid;
+  height: .5rem;
+  justify-content: stretch;
+}
+
+.highlight .webvsc-contents {
+  border-color: #fff;
+}
