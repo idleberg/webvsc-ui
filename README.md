@@ -29,14 +29,14 @@ Embedding the converter into a website is easy
 ```html
 <head>
     <!-- Import the style-sheet -->
-    <link rel="stylesheet" href="dist/webvsc-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@visbot/webvsc-ui@latest/dist/webvsc-ui.css">
 </head>
 <body>
     <!-- Add a droparea -->
     <div id="drop-area"></div>
 
     <!-- Import the script -->
-    <script src="dist/webvsc-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@visbot/webvsc-ui@latest/dist/webvsc-ui.js"></script>
 
     <!-- Initialize the script -->
     <script>
