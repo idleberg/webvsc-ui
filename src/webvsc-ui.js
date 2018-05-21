@@ -6,13 +6,8 @@ import { saveAs } from 'file-saver';
 const reader = new FileReader();
 const version = require('../package.json').version;
 
-let innerHTML = "";
-innerHTML += '<h1>webvsc-ui</h1>';
-innerHTML += '<hr>';
-innerHTML += '<p>This is a tool to convert <u><a href="http://www.wikiwand.com/en/Advanced_Visualization_Studio">Winamp AVS</a></u> presets into <u><a href="https://github.com/azeem/webvs">Webvs</a></u> files. Simply drag one or many presets onto this window, then wait for the download to initiate.</p>';
-
 const defaultOptions = {
-  innerHTML: innerHTML,
+  innerHTML: "Drop it like it's hot"
 }
 
 export default class Webvsc {
