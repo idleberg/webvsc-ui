@@ -14,27 +14,55 @@ Web frontend for [webvsc](https://www.npmjs.com/package/@visbot/webvsc), a conve
 
 ## Installation
 
+Use your preferred [Node](https://nodejs.org) package manager to install the mode
+
 ```sh
-# Clone repository
-git clone https://github.com/idleberg/webvsc-ui && cd webvsc-ui
-
-# Install dependencies
-yarn || npm install
-
-# Build
-yarn build || npm run build
-
-# Run server at localhost:8080
-yarn start || npm start
+yarn add @visbot/webvsc-ui || npm install @visbot/webvsc-ui
 ```
 
 *“That's all Folks!”*
 
 ## Usage
 
-Point your browser to `http://localhost:8080` and upload presets. See the console output if you run into problems.
+Embedding the converter into a website is easy
 
-Advanced users can tweak some of the defaults using URL parameters:
+```html
+    <!-- Import the style-sheet -->
+    <link rel="stylesheet" href="dist/webvsc-ui.css">
+</head>
+<body>
+    <!-- Add a droparea -->
+    <div id="drop-area"></div>
+
+    <!-- Import the script -->
+    <script src="dist/webvsc-ui.js"></script>
+
+    <!-- Initialize the script -->
+    <script>
+      var ui = new Webvsc(document.getElementById('drop-area'));
+    </script>
+</body>
+</html>
+```
+
+#### Options
+
+Pass options in an object to configure the appearance
+
+```js
+var element = document.getElementById('drop-area');
+var options = {
+  innerHTML: "<p>Drop it like it's hot</p>",
+  width: '800px',
+  height: '600px'
+};
+
+var ui = new Webvsc(element, options);
+```
+
+#### Parameters
+
+Advanced users can tweak some of the defaults using URL parameters
 
 URL Parameter | Description
 --------------|-----------------------------
