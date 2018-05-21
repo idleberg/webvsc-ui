@@ -7,7 +7,7 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@visbot/webvsc-ui@latest/dist/webvsc-ui.css" as="style" onload="this.rel='stylesheet'">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" as="style" onload="this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@visbot/webvsc-ui@latest/dist/webvsc-ui.css">
+    <link rel="stylesheet" href="dist/webvsc-ui.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700">
   </noscript>
   <style type="text/css" media="screen">:root{--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-serif:'Playfair Display',serif}@media print{*,::after,::before{text-shadow:none!important;box-shadow:none!important}a,a:visited{text-decoration:underline}p{orphans:3;widows:3}}*,::after,::before{box-sizing:border-box}html{font-family:serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar;-webkit-tap-highlight-color:transparent}@-ms-viewport{width:device-width}body{margin:0;font-family:var(--font-family-serif);font-size:1.5rem;font-weight:400;line-height:1.5;color:#eee;text-align:left;background-color:#222;overflow:hidden;transition:font-size .2s ease}hr{border-style:double;margin:1rem -1rem}h1{font-size:2rem;margin-top:0;margin-bottom:.5rem}p{margin-top:0;margin-bottom:1rem}a{color:#eee;text-decoration:underline;-webkit-text-decoration-skip:objects}a:hover{color:#ccc;text-decoration:underline}.webvsc-contents > *{max-width:680px}</style>
@@ -16,11 +16,11 @@
 </head>
 <body>
   <div id="drop-area"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@visbot/webvsc-ui@latest/dist/webvsc-ui.js" defer></script>
+  <script src="dist/webvsc-ui.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var options = {
-        innerHTML: '<h1>webvsc-ui</h1><hr><p>This is a tool to convert <u><a href="http://www.wikiwand.com/en/Advanced_Visualization_Studio">Winamp AVS</a></u> presets into <u><a href="https://github.com/azeem/webvs">Webvs</a></u> files. Simply drag one or many presets onto this window, then wait for the download to initiate.</p>',
+        // innerHTML: '<h1>webvsc-ui</h1><hr><p>This is a tool to convert <u><a href="http://www.wikiwand.com/en/Advanced_Visualization_Studio">Winamp AVS</a></u> presets into <u><a href="https://github.com/azeem/webvs">Webvs</a></u> files. Simply drag one or many presets onto this window, then wait for the download to initiate.</p>',
         width: '100vw',
         height: '100vh'
       };
