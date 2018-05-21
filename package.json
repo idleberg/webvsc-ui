@@ -4,7 +4,6 @@
   "description": "Web frontend for webvsc, a converter for Winamp AVS presets",
   "author": "Jan T. Sott",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "gulp build",
     "build:dev": "webpack --mode development",
