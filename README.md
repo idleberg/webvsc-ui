@@ -20,8 +20,6 @@ Use your preferred [Node](https://nodejs.org) package manager to install the mod
 yarn add @visbot/webvsc-ui || npm install @visbot/webvsc-ui
 ```
 
-*“That's all Folks!”*
-
 ## Usage
 
 Embedding the converter into a website is easy
