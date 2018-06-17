@@ -10,6 +10,11 @@ module.exports = {
     libraryTarget: 'window',
     libraryExport: 'default',
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
   module: {
     rules: [
       {

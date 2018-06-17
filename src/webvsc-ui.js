@@ -1,6 +1,6 @@
 import JSZip from 'jszip';
 import { basename, extname } from 'path';
-import { convertBlob } from '@visbot/webvsc';
+import { convertBlob } from '@visbot/webvsc/browser';
 import { saveAs } from 'file-saver';
 
 const reader = new FileReader();
