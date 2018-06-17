@@ -5,11 +5,9 @@ const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
 
 const plugins = [
-    autoprefixer({browsers: ['last 2 versions']}),
+    autoprefixer({browsers: ['last 5 versions']}),
     cssnano()
 ];
 
@@ -21,15 +19,7 @@ gulp.task('cssnano', (done) => {
   done();
 });
 
-// Webpack
-gulp.task('webpack', (done) => {
-  gulp.src('src/webvsc-ui.js')
-  .pipe(webpackStream({config: require('./webpack.config.js')}, webpack))
-  .pipe(gulp.dest('dist/'));
-  done();
-});
-
 // Available tasks
-gulp.task('build', gulp.parallel('cssnano', 'webpack', (done) => {
+gulp.task('build', gulp.parallel('cssnano', (done) => {
   done();
 }));
