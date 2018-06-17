@@ -78,9 +78,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@visbot/webvsc@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@visbot/webvsc/-/webvsc-2.1.0.tgz#02f749ef54e4aedeb05c9add69ed4d5b0f65761c"
+"@visbot/webvsc@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@visbot/webvsc/-/webvsc-2.2.0.tgz#95e75b0dc4e33116d653ffeb811f7d246706ada4"
   dependencies:
     chalk "^2.4.1"
 
