@@ -1,6 +1,6 @@
 import JSZip from 'jszip';
 import { basename, extname } from 'path';
-import { convertFile } from '@visbot/webvsc';
+import { convertBlob } from '@visbot/webvsc';
 import { saveAs } from 'file-saver';
 
 const reader = new FileReader();
@@ -81,8 +81,9 @@ async function conversion(event) {
     const file = files[0];
     const params = getParams();
     const baseName = basename(file.name, extname(file.name));
-
-    const webvs = convertFile(file, { verbose: params.verbose });
+    const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();
+    const avsBuffer = await readFileAsArrayBuffer(file);
+    const webvs = convertBlob(avsBuffer, baseName, modifiedDate, { verbose: params.verbose });
     outFile = baseName + '.webvs';
 
     const preset = JSON.stringify(webvs, null, params.whitespace);
@@ -196,7 +197,10 @@ function getParams() {
     }
 
     const baseName = basename(file.name, extname(file.name));
-    const webvs = convertFile(file, { verbose: verbose });
+    const modifiedDate = file.lastModifiedDate ? file.lastModifiedDate.toISOString() : new Date(Date.now()).toISOString();
+
+    const avsBuffer = await readFileAsArrayBuffer(file)
+    const webvs = convertBlob(avsBuffer, baseName, modifiedDate, { verbose: verbose });
     let outFile = baseName + '.webvs';
 
     zip.file(outFile, JSON.stringify(webvs, null, whitespace));
