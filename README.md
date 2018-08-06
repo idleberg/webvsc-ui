@@ -1,10 +1,10 @@
 # webvsc-ui
 
-[![npm](https://img.shields.io/npm/l/@visbot/webvsc-ui.svg?style=flat-square)](https://www.npmjs.org/package/@visbot/webvsc-ui)
-[![npm](https://img.shields.io/npm/v/@visbot/webvsc-ui.svg?style=flat-square)](https://www.npmjs.org/package/@visbot/webvsc-ui)
-[![Travis CI](https://img.shields.io/travis/idleberg/webvsc-ui/gh-pages.svg?style=flat-square)](https://travis-ci.org/idleberg/webvsc-ui)
-[![David](https://img.shields.io/david/idleberg/webvsc-ui.svg?style=flat-square)](https://david-dm.org/idleberg/webvsc-ui)
-[![David](https://img.shields.io/david/dev/idleberg/webvsc-ui.svg?style=flat-square)](https://david-dm.org/idleberg/webvsc-ui?type=dev)
+[![npm](https://flat.badgen.net/npm/license/@visbot/webvsc-ui)](https://www.npmjs.org/package/@visbot/webvsc-ui)
+[![npm](https://flat.badgen.net/npm/v/@visbot/webvsc-ui)](https://www.npmjs.org/package/@visbot/webvsc-ui)
+[![Travis CI](https://flat.badgen.net/travis/idleberg/webvsc-ui/gh-pages)](https://travis-ci.org/idleberg/webvsc-ui)
+[![David](https://flat.badgen.net/david/dep/idleberg/webvsc-ui)](https://david-dm.org/idleberg/webvsc-ui)
+[![David](https://flat.badgen.net/david/dev/idleberg/webvsc-ui)](https://david-dm.org/idleberg/webvsc-ui?type=dev)
 
 ## Description
 
