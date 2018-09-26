@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/webvsc-ui.js'],
+  entry: ['@babel/polyfill', './src/webvsc-ui.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'webvsc-ui.js',
