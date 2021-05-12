@@ -4,8 +4,9 @@ node_modules/
 vendor/
 yarn.lock
 
-# Node Gyp
+# Dev
 build/
+.eslintcache
 
 # Project specific
 todo.md
