@@ -4,7 +4,6 @@
 [![npm](https://flat.badgen.net/npm/v/@visbot/webvsc-ui)](https://www.npmjs.org/package/@visbot/webvsc-ui)
 [![Travis CI](https://flat.badgen.net/travis/idleberg/webvsc-ui/gh-pages)](https://travis-ci.org/idleberg/webvsc-ui)
 [![David](https://flat.badgen.net/david/dep/idleberg/webvsc-ui)](https://david-dm.org/idleberg/webvsc-ui)
-[![David](https://flat.badgen.net/david/dev/idleberg/webvsc-ui)](https://david-dm.org/idleberg/webvsc-ui?type=dev)
 
 ## Description
 
